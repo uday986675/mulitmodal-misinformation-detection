@@ -6,21 +6,33 @@ Allows users to input text and images for real-time predictions.
 """
 
 import streamlit as st
-import torch
 import numpy as np
 from pathlib import Path
 import sys
 from PIL import Image
 import io
 
+# Try to import torch, gracefully handle if not available
+try:
+    import torch
+    TORCH_AVAILABLE = True
+except ImportError:
+    TORCH_AVAILABLE = False
+    st.warning("⚠️ PyTorch not installed. Some features may be limited.")
+
 # Add project root to path
 PROJECT_ROOT = Path(__file__).parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from models.text_encoder import TextEncoder
-from models.image_encoder import ImageEncoder
-from models.multimodal_fusion import MultimodalFusion
-from models.classifier import MultimodalClassifier, CompleteMultimodalModel
+try:
+    from models.text_encoder import TextEncoder
+    from models.image_encoder import ImageEncoder
+    from models.multimodal_fusion import MultimodalFusion
+    from models.classifier import MultimodalClassifier, CompleteMultimodalModel
+except ImportError as e:
+    st.error(f"❌ Error importing model modules: {e}")
+    st.stop()
+
 from data.preprocess_text import TextPreprocessor
 from data.preprocess_image import ImagePreprocessor
 from inference.predict import Predictor
