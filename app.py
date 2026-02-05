@@ -236,12 +236,20 @@ def display_prediction_result(result):
     if result is None:
         return
     
-    prediction = result.get('prediction', -1)
+    prediction = result.get('prediction', 'Real')
     confidence = result.get('confidence', 0)
-    probabilities = result.get('probabilities', [0, 0])
+    probabilities_dict = result.get('probabilities', {'Real': 0, 'Fake': 0})
+    
+    # Convert probabilities dict to list for consistency
+    if isinstance(probabilities_dict, dict):
+        prob_real = probabilities_dict.get('Real', 0)
+        prob_fake = probabilities_dict.get('Fake', 0)
+        probabilities = [prob_real, prob_fake]
+    else:
+        probabilities = probabilities_dict if isinstance(probabilities_dict, list) else [0, 0]
     
     # Determine classification
-    is_fake = prediction == 1
+    is_fake = prediction == 1 or prediction == 'Fake'
     label = "🚨 FAKE NEWS" if is_fake else "✅ REAL NEWS"
     css_class = "fake-news" if is_fake else "real-news"
     
