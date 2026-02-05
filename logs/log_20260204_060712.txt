@@ -1,0 +1,90 @@
+2026-02-04 06:07:12 - MMD - INFO - 
+================================================================================
+2026-02-04 06:07:12 - MMD - INFO - BUILDING MODEL ARCHITECTURE
+2026-02-04 06:07:12 - MMD - INFO - ================================================================================
+
+2026-02-04 06:07:15 - MMD - INFO - ✓ Text Encoder: distilbert
+2026-02-04 06:07:15 - MMD - INFO - ✓ Image Encoder: efficientnet_b0
+2026-02-04 06:07:15 - MMD - INFO - ✓ Fusion: concat
+2026-02-04 06:07:15 - MMD - INFO - ✓ Classifier: Binary Classification (Fake/Real)
+2026-02-04 06:07:15 - MMD - INFO - 
+Model Statistics:
+2026-02-04 06:07:15 - MMD - INFO -   - Total Parameters: 73,163,262
+2026-02-04 06:07:15 - MMD - INFO -   - Trainable Parameters: 73,163,262
+2026-02-04 06:07:15 - MMD - INFO -   - Model Size: 292.65 MB
+2026-02-04 06:07:15 - MMD - INFO - Loss Function: focal
+2026-02-04 06:07:15 - MMD - INFO - 
+================================================================================
+2026-02-04 06:07:15 - MMD - INFO - STARTING TRAINING
+2026-02-04 06:07:15 - MMD - INFO - ================================================================================
+
+2026-02-04 06:07:15 - MMD - INFO - Starting training for 10 epochs on cuda
+2026-02-04 06:07:15 - MMD - INFO - Monitoring metric: f1
+2026-02-04 06:07:28 - MMD - INFO - Epoch 1 - Batch 0/508: Loss = 0.1411
+2026-02-04 06:07:39 - MMD - INFO - Epoch 1 - Batch 50/508: Loss = 0.2087
+2026-02-04 06:07:49 - MMD - INFO - Epoch 1 - Batch 100/508: Loss = 0.1720
+2026-02-04 06:07:59 - MMD - INFO - Epoch 1 - Batch 150/508: Loss = 0.1663
+2026-02-04 06:08:10 - MMD - INFO - Epoch 1 - Batch 200/508: Loss = 0.1474
+2026-02-04 06:08:20 - MMD - INFO - Epoch 1 - Batch 250/508: Loss = 0.1116
+2026-02-04 06:08:30 - MMD - INFO - Epoch 1 - Batch 300/508: Loss = 0.0919
+2026-02-04 06:08:41 - MMD - INFO - Epoch 1 - Batch 350/508: Loss = 0.1145
+2026-02-04 06:08:51 - MMD - INFO - Epoch 1 - Batch 400/508: Loss = 0.0804
+2026-02-04 06:09:01 - MMD - INFO - Epoch 1 - Batch 450/508: Loss = 0.0783
+2026-02-04 06:09:11 - MMD - INFO - Epoch 1 - Batch 500/508: Loss = 0.0807
+2026-02-04 06:09:23 - MMD - INFO - Epoch 1/10 - Train: Loss=0.1240, F1=0.3889, Acc=0.5679
+2026-02-04 06:09:40 - MMD - INFO - Epoch 1/10 - Val: Loss=1.1404, F1=0.0000, Acc=0.7519
+2026-02-04 06:09:45 - MMD - INFO - Checkpoint saved: checkpoints/checkpoint_best.pt
+2026-02-04 06:09:45 - MMD - INFO - Epoch 2 - Batch 0/508: Loss = 0.0642
+2026-02-04 06:09:56 - MMD - INFO - Epoch 2 - Batch 50/508: Loss = 0.0672
+2026-02-04 06:10:07 - MMD - INFO - Epoch 2 - Batch 100/508: Loss = 0.0533
+2026-02-04 06:10:17 - MMD - INFO - Epoch 2 - Batch 150/508: Loss = 0.0659
+2026-02-04 06:10:27 - MMD - INFO - Epoch 2 - Batch 200/508: Loss = 0.0594
+2026-02-04 06:10:38 - MMD - INFO - Epoch 2 - Batch 250/508: Loss = 0.0798
+2026-02-04 06:10:48 - MMD - INFO - Epoch 2 - Batch 300/508: Loss = 0.0585
+2026-02-04 06:10:58 - MMD - INFO - Epoch 2 - Batch 350/508: Loss = 0.0666
+2026-02-04 06:11:08 - MMD - INFO - Epoch 2 - Batch 400/508: Loss = 0.0379
+2026-02-04 06:11:19 - MMD - INFO - Epoch 2 - Batch 450/508: Loss = 0.0832
+2026-02-04 06:11:29 - MMD - INFO - Epoch 2 - Batch 500/508: Loss = 0.0408
+2026-02-04 06:11:31 - MMD - INFO - Epoch 2/10 - Train: Loss=0.0617, F1=0.5340, Acc=0.8012
+2026-02-04 06:11:48 - MMD - INFO - Epoch 2/10 - Val: Loss=1.1404, F1=0.0000, Acc=0.7519
+2026-02-04 06:11:48 - MMD - INFO - Epoch 3 - Batch 0/508: Loss = 0.0434
+2026-02-04 06:11:59 - MMD - INFO - Epoch 3 - Batch 50/508: Loss = 0.0273
+2026-02-04 06:12:09 - MMD - INFO - Epoch 3 - Batch 100/508: Loss = 0.0499
+2026-02-04 06:12:19 - MMD - INFO - Epoch 3 - Batch 150/508: Loss = 0.0450
+2026-02-04 06:12:29 - MMD - INFO - Epoch 3 - Batch 200/508: Loss = 0.0333
+2026-02-04 06:12:40 - MMD - INFO - Epoch 3 - Batch 250/508: Loss = 0.0283
+2026-02-04 06:12:50 - MMD - INFO - Epoch 3 - Batch 300/508: Loss = 0.0442
+2026-02-04 06:13:01 - MMD - INFO - Epoch 3 - Batch 350/508: Loss = 0.0282
+2026-02-04 06:13:11 - MMD - INFO - Epoch 3 - Batch 400/508: Loss = 0.0213
+2026-02-04 06:13:21 - MMD - INFO - Epoch 3 - Batch 450/508: Loss = 0.0368
+2026-02-04 06:13:32 - MMD - INFO - Epoch 3 - Batch 500/508: Loss = 0.0545
+2026-02-04 06:13:33 - MMD - INFO - Epoch 3/10 - Train: Loss=0.0450, F1=0.5943, Acc=0.8412
+2026-02-04 06:13:50 - MMD - INFO - Epoch 3/10 - Val: Loss=1.1404, F1=0.0000, Acc=0.7519
+2026-02-04 06:13:50 - MMD - INFO - Epoch 4 - Batch 0/508: Loss = 0.0560
+2026-02-04 06:14:00 - MMD - INFO - Epoch 4 - Batch 50/508: Loss = 0.0437
+2026-02-04 06:14:11 - MMD - INFO - Epoch 4 - Batch 100/508: Loss = 0.0518
+2026-02-04 06:14:21 - MMD - INFO - Epoch 4 - Batch 150/508: Loss = 0.0155
+2026-02-04 06:14:31 - MMD - INFO - Epoch 4 - Batch 200/508: Loss = 0.0376
+2026-02-04 06:14:42 - MMD - INFO - Epoch 4 - Batch 250/508: Loss = 0.0203
+2026-02-04 06:14:52 - MMD - INFO - Epoch 4 - Batch 300/508: Loss = 0.0329
+2026-02-04 06:15:02 - MMD - INFO - Epoch 4 - Batch 350/508: Loss = 0.0745
+2026-02-04 06:15:12 - MMD - INFO - Epoch 4 - Batch 400/508: Loss = 0.0223
+2026-02-04 06:15:23 - MMD - INFO - Epoch 4 - Batch 450/508: Loss = 0.0209
+2026-02-04 06:15:33 - MMD - INFO - Epoch 4 - Batch 500/508: Loss = 0.0302
+2026-02-04 06:15:34 - MMD - INFO - Epoch 4/10 - Train: Loss=0.0375, F1=0.6625, Acc=0.8654
+2026-02-04 06:15:51 - MMD - INFO - Epoch 4/10 - Val: Loss=1.1404, F1=0.0000, Acc=0.7519
+2026-02-04 06:15:51 - MMD - INFO - Early stopping at epoch 4
+2026-02-04 06:15:51 - MMD - INFO - Training complete!
+2026-02-04 06:15:51 - MMD - INFO - 
+================================================================================
+2026-02-04 06:15:51 - MMD - INFO - TRAINING COMPLETE
+2026-02-04 06:15:51 - MMD - INFO - ================================================================================
+
+2026-02-04 06:15:51 - MMD - INFO - Best Epoch: 1
+2026-02-04 06:15:51 - MMD - INFO - Best Metrics: {'accuracy': 0.7519402127048003, 'precision': 0.0, 'recall': 0.0, 'f1': 0.0, 'roc_auc': np.float64(0.5), 'pr_auc': np.float64(0.6240298936475999), 'true_negatives': 2616, 'false_positives': 0, 'false_negatives': 863, 'true_positives': 0, 'specificity': np.float64(1.0), 'sensitivity': np.float64(0.0), 'loss': 1.1404432380964997}
+2026-02-04 06:15:55 - MMD - INFO - Final model saved to checkpoints/final_model.pt
+2026-02-04 06:15:55 - MMD - INFO - 
+================================================================================
+2026-02-04 06:15:55 - MMD - INFO - COMPLETE
+2026-02-04 06:15:55 - MMD - INFO - ================================================================================
+

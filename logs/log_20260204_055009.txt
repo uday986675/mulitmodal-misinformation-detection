@@ -1,0 +1,23 @@
+2026-02-04 05:50:09 - MMD - INFO - 
+================================================================================
+2026-02-04 05:50:09 - MMD - INFO - BUILDING MODEL ARCHITECTURE
+2026-02-04 05:50:09 - MMD - INFO - ================================================================================
+
+2026-02-04 05:50:09 - MMD - INFO - ✓ Text Encoder: distilbert
+2026-02-04 05:50:09 - MMD - INFO - ✓ Image Encoder: efficientnet_b0
+2026-02-04 05:50:09 - MMD - INFO - ✓ Fusion: concat
+2026-02-04 05:50:09 - MMD - INFO - ✓ Classifier: Binary Classification (Fake/Real)
+2026-02-04 05:50:09 - MMD - INFO - 
+Model Statistics:
+2026-02-04 05:50:09 - MMD - INFO -   - Total Parameters: 73,163,262
+2026-02-04 05:50:09 - MMD - INFO -   - Trainable Parameters: 73,163,262
+2026-02-04 05:50:09 - MMD - INFO -   - Model Size: 292.65 MB
+2026-02-04 05:50:09 - MMD - INFO - Loss Function: focal
+2026-02-04 05:50:09 - MMD - INFO - 
+================================================================================
+2026-02-04 05:50:09 - MMD - INFO - STARTING TRAINING
+2026-02-04 05:50:09 - MMD - INFO - ================================================================================
+
+2026-02-04 05:50:09 - MMD - INFO - Starting training for 10 epochs on cpu
+2026-02-04 05:50:09 - MMD - INFO - Monitoring metric: f1
+2026-02-04 05:50:45 - MMD - INFO - Epoch 1 - Batch 0/508: Loss = 0.1749

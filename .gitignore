@@ -1,0 +1,37 @@
+# Checkpoint files
+checkpoints/*.pt
+*.pt
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs (optional - comment out if you want to keep them)
+# logs/
+# experiments/
+
+# Large data files
+*.csv
+datasets/
+
+# Temporary files
+*.tmp
+*.log

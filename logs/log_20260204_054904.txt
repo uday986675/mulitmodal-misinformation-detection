@@ -1,0 +1,102 @@
+2026-02-04 05:49:04 - MMD - INFO - 
+================================================================================
+2026-02-04 05:49:04 - MMD - INFO - LOGGING INITIALIZED
+2026-02-04 05:49:04 - MMD - INFO - ================================================================================
+
+2026-02-04 05:49:04 - MMD - INFO - Experiment: mmd_train
+2026-02-04 05:49:04 - MMD - INFO - Log directory: experiments/mmd_train_20260204_054904
+2026-02-04 05:49:04 - MMD - INFO - Configuration:
+{
+  "data": {
+    "data_dir": "datasets",
+    "output_dir": "outputs",
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "test_ratio": 0.15,
+    "text_max_length": 128,
+    "text_model": "distilbert-base-uncased",
+    "image_size": 224,
+    "image_augmentation": true,
+    "batch_size": 32,
+    "num_workers": 0
+  },
+  "model": {
+    "text_encoder_type": "distilbert",
+    "text_hidden_dim": 768,
+    "text_dropout": 0.1,
+    "text_freeze_backbone": false,
+    "image_encoder_type": "efficientnet_b0",
+    "image_hidden_dim": 768,
+    "image_dropout": 0.1,
+    "fusion_type": "concat",
+    "fusion_hidden_dim": 512,
+    "classifier_hidden_dim": 256,
+    "classifier_dropout": 0.2,
+    "output_dim": 2
+  },
+  "training": {
+    "optimizer": "adamw",
+    "learning_rate": 1e-05,
+    "weight_decay": 0.01,
+    "warmup_steps": 500,
+    "loss_function": "focal",
+    "focal_alpha": 0.25,
+    "focal_gamma": 2.0,
+    "label_smoothing": 0.1,
+    "num_epochs": 10,
+    "early_stopping_patience": 3,
+    "metric_to_monitor": "f1",
+    "mixed_precision": true,
+    "checkpoint_dir": "checkpoints",
+    "save_frequency": 1
+  },
+  "inference": {
+    "model_checkpoint": null,
+    "confidence_threshold": 0.5,
+    "return_embeddings": false,
+    "use_mc_dropout": false,
+    "mc_samples": 10
+  },
+  "device": "cuda",
+  "seed": 42,
+  "verbose": true
+}
+2026-02-04 05:49:04 - MMD - INFO - 
+================================================================================
+2026-02-04 05:49:04 - MMD - INFO - TRAINING MODE
+2026-02-04 05:49:04 - MMD - INFO - ================================================================================
+
+2026-02-04 05:49:04 - MMD - INFO - Device: cpu
+2026-02-04 05:49:04 - MMD - INFO - Device Info: {'cuda_available': False, 'num_gpus': 0, 'current_device': -1}
+2026-02-04 05:49:04 - MMD - INFO - 
+================================================================================
+2026-02-04 05:49:04 - MMD - INFO - LOADING DATASETS
+2026-02-04 05:49:04 - MMD - INFO - ================================================================================
+
+2026-02-04 05:49:05 - MMD - INFO - Total samples: 23196
+2026-02-04 05:49:05 - MMD - INFO - Fake samples: 5755
+2026-02-04 05:49:05 - MMD - INFO - Real samples: 17441
+2026-02-04 05:49:05 - MMD - INFO - Train: 16236 | Val: 3479 | Test: 3481
+2026-02-04 05:49:06 - MMD - INFO - ✓ Data loading complete
+2026-02-04 05:49:06 - MMD - INFO - 
+================================================================================
+2026-02-04 05:49:06 - MMD - INFO - BUILDING MODEL ARCHITECTURE
+2026-02-04 05:49:06 - MMD - INFO - ================================================================================
+
+2026-02-04 05:49:06 - MMD - INFO - ✓ Text Encoder: distilbert
+2026-02-04 05:49:06 - MMD - INFO - ✓ Image Encoder: efficientnet_b0
+2026-02-04 05:49:06 - MMD - INFO - ✓ Fusion: concat
+2026-02-04 05:49:06 - MMD - INFO - ✓ Classifier: Binary Classification (Fake/Real)
+2026-02-04 05:49:06 - MMD - INFO - 
+Model Statistics:
+2026-02-04 05:49:06 - MMD - INFO -   - Total Parameters: 73,163,262
+2026-02-04 05:49:06 - MMD - INFO -   - Trainable Parameters: 73,163,262
+2026-02-04 05:49:06 - MMD - INFO -   - Model Size: 292.65 MB
+2026-02-04 05:49:06 - MMD - INFO - Loss Function: focal
+2026-02-04 05:49:07 - MMD - INFO - 
+================================================================================
+2026-02-04 05:49:07 - MMD - INFO - STARTING TRAINING
+2026-02-04 05:49:07 - MMD - INFO - ================================================================================
+
+2026-02-04 05:49:07 - MMD - INFO - Starting training for 10 epochs on cpu
+2026-02-04 05:49:07 - MMD - INFO - Monitoring metric: f1
