@@ -1,0 +1,6 @@
+# System packages required for Streamlit Cloud deployment
+libsm6
+libxext6
+libxrender-dev
+libgomp1
+python3-dev

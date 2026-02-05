@@ -1,8 +1,9 @@
 [server]
 port = 8501
 headless = true
-runOnSave = true
+runOnSave = false
 maxUploadSize = 200
+enableXsrfProtection = true
 
 [logger]
 level = "info"
@@ -19,3 +20,10 @@ showErrorDetails = true
 
 [browser]
 gatherUsageStats = false
+serverAddress = "localhost"
+
+[magic]
+displayToolbar = true
+
+[experimental]
+rerunOnEdit = true
