@@ -20,7 +20,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from models.text_encoder import TextEncoder
 from models.image_encoder import ImageEncoder
 from models.multimodal_fusion import MultimodalFusion
-from models.classifier import CompleteMultimodalModel
+from models.classifier import MultimodalClassifier, CompleteMultimodalModel
 from data.preprocess_text import TextPreprocessor
 from data.preprocess_image import ImagePreprocessor
 from inference.predict import Predictor
@@ -75,15 +75,9 @@ st.markdown("""
 def load_model():
     """Load the trained model from checkpoint."""
     try:
-        checkpoint_path = PROJECT_ROOT / "checkpoints" / "final_model.pt"
-        
-        if not checkpoint_path.exists():
-            st.error(f"❌ Model checkpoint not found at {checkpoint_path}")
-            return None
-        
         device = "cuda" if torch.cuda.is_available() else "cpu"
         
-        # Build model components
+        # Build model components with config
         config = DEFAULT_CONFIG
         
         text_encoder = TextEncoder(
@@ -122,12 +116,20 @@ def load_model():
             classifier=classifier,
         )
         
-        # Load checkpoint
-        checkpoint = torch.load(checkpoint_path, map_location=device)
-        if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
-            model.load_state_dict(checkpoint['model_state_dict'])
+        # Try to load checkpoint if it exists
+        checkpoint_path = PROJECT_ROOT / "checkpoints" / "final_model.pt"
+        if checkpoint_path.exists():
+            try:
+                checkpoint = torch.load(checkpoint_path, map_location=device)
+                if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+                    model.load_state_dict(checkpoint['model_state_dict'])
+                else:
+                    model.load_state_dict(checkpoint)
+                print(f"✅ Model checkpoint loaded from {checkpoint_path}")
+            except Exception as e:
+                print(f"⚠️ Could not load checkpoint: {str(e)}. Using untrained model.")
         else:
-            model.load_state_dict(checkpoint)
+            print(f"⚠️ Model checkpoint not found at {checkpoint_path}. Using untrained model.")
         
         model = model.to(device)
         model.eval()
@@ -145,13 +147,25 @@ def load_model():
 def load_preprocessors():
     """Load text and image preprocessors."""
     try:
+        # Create config object properly
         config = DEFAULT_CONFIG
-        text_preprocessor = TextPreprocessor(config)
-        image_preprocessor = ImagePreprocessor(config)
+        
+        # Initialize preprocessors with proper parameters from config
+        text_preprocessor = TextPreprocessor(
+            model_name=config.data.text_model,
+            max_length=config.data.text_max_length
+        )
+        image_preprocessor = ImagePreprocessor(
+            img_size=config.data.image_size,
+            augment=config.data.image_augmentation,
+            normalize=True
+        )
         return text_preprocessor, image_preprocessor
     
     except Exception as e:
         st.error(f"❌ Error loading preprocessors: {str(e)}")
+        import traceback
+        st.error(traceback.format_exc())
         return None, None
 
 
